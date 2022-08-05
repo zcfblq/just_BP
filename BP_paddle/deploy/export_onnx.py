@@ -57,6 +57,7 @@ def main(opt):
         scores = gs.Variable(name="scores", shape=concat.outputs[0].shape, dtype=np.float32)
         concat.outputs[0] = scores
         graph.outputs = [bboxes, scores]
+        graph.inputs = [graph.inputs[0]]
         graph.cleanup().toposort()
         onnx.save(gs.export_onnx(graph), save_file)
         return

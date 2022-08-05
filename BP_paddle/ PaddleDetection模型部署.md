@@ -1,8 +1,8 @@
 ## PP-PicoDet 和 PP-YOLOE
 模型导出参考[end2end_ppyoloe](https://github.com/PaddlePaddle/PaddleDetection/tree/develop/deploy/end2end_ppyoloe)
-### 导出模型
+### 模型下载
     paddle原始模型及转换后的onnx模型下载地址如下
-
+## 模型转换
 1. 依赖的环境
     ``` bash
     git clone https://github.com/PaddlePaddle/PaddleDetection.git -b develop
@@ -39,7 +39,7 @@
     --trt-nms
     ```
     - `--is_pico` 参数指定是否为Pico模型
-    - `--trt-nms` 指定是否添加trt nms插件
+    - `--trt-nms` 指定是否添加trt nms插件， 推荐为不添加
 
 
 
@@ -55,6 +55,9 @@
     pip install cuda-python
     # if use cupy infer, please install it
     pip install cupy-cuda117 # cuda110-cuda117 are all available
+
+    cd deploy 
+    python predict_onnxruntime.py onnx_path image_path
 
    ```
 
